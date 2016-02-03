@@ -13,30 +13,28 @@ function getBiggestVersion (A) {
             ]);
         }
     }
-
-    var r = findMax(findMax(findMax(a, 0), 1), 2);
-    return r[0];
+    return getBiggest(a);
 }
 
-// a：二维数组，index，比较第几个
-// return：返回保留比较后的结果组成的二维数组
-function findMax (a, index) {
-    var t = [];
-    var b = [];
-    var r = [];
-    for (var i = 0; i < a.length; i++) {
-        t.push(Number(a[i][index]));
-    }
-    var max = Math.max.apply(this, t);
-    for (var j = 0; j < a.length; j++) {
-        if (a[i][index] === max) {
-            b.push(i);
+// 得到最大版本号: [[0,1,0], [1,0,0]] => [1,0,0]
+function getBiggest(A){
+    var max = A[0];
+    for(var i = 0, n = A.length; i < n; i++){
+        if(bg(A[i], max)){
+            max = A[i];
         }
     }
-    for (var m = 0; m < b.length; m++) {
-        r.push(a[b[i]]);
+    return max;
+}
+
+// 比较版本号v1大于v2?:[0,1,0],[1,0,0] => false
+function bg(v1, v2){
+    for(var i = 0, n = v1.length; i < n; i++){
+        if(v1[i] !== v2[i]){
+            return v1[i] > v2[i];
+        }
     }
-    return r;
+    return false;
 }
 
 /**
