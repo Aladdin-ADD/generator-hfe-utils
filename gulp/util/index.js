@@ -17,10 +17,10 @@ function getBiggestVersion (A) {
 }
 
 // 得到最大版本号: [[0,1,0], [1,0,0]] => [1,0,0]
-function getBiggest(A){
+function getBiggest (A) {
     var max = A[0];
-    for(var i = 0, n = A.length; i < n; i++){
-        if(bg(A[i], max)){
+    for (var i = 0, n = A.length; i < n; i++) {
+        if (bg(A[i], max)) {
             max = A[i];
         }
     }
@@ -28,9 +28,9 @@ function getBiggest(A){
 }
 
 // 比较版本号v1大于v2?:[0,1,0],[1,0,0] => false
-function bg(v1, v2){
-    for(var i = 0, n = v1.length; i < n; i++){
-        if(v1[i] !== v2[i]){
+function bg (v1, v2) {
+    for (var i = 0, n = v1.length; i < n; i++) {
+        if (v1[i] !== v2[i]) {
             return v1[i] > v2[i];
         }
     }
