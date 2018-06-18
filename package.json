@@ -4,7 +4,9 @@
   "description": "for generator-hfe",
   "main": "./lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,9 +40,11 @@
     "path": "^0.12.7",
     "ssi": "^0.3.0",
     "through2": "^2.0.0",
-    "url-complete": "^1.0.4"
+    "url-complete": "^1.0.4",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "eslint-config-hfe": "^1.0.5"
-  }
+  },
+  "snyk": true
 }
